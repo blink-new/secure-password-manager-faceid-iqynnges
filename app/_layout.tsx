@@ -3,18 +3,18 @@ import { useEffect } from 'react';
 import { Tabs } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
-import { Lock, Key, Settings } from 'lucide-react-native';
-import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
+import { Key, Settings } from 'lucide-react-native';
 import { View, Text } from 'react-native';
+import { useFonts } from 'expo-font';
 
 export default function RootLayout() {
   useFrameworkReady();
   
   const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
+    'Inter-Regular': require('@/assets/fonts/Inter-Regular.ttf'),
+    'Inter-Medium': require('@/assets/fonts/Inter-Medium.ttf'),
+    'Inter-SemiBold': require('@/assets/fonts/Inter-SemiBold.ttf'),
+    'Inter-Bold': require('@/assets/fonts/Inter-Bold.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -40,7 +40,6 @@ export default function RootLayout() {
             paddingTop: 10,
           },
           tabBarLabelStyle: {
-            fontFamily: 'Inter_500Medium',
             fontSize: 12,
           },
           headerStyle: {
@@ -52,7 +51,6 @@ export default function RootLayout() {
             elevation: 3,
           },
           headerTitleStyle: {
-            fontFamily: 'Inter_600SemiBold',
             fontSize: 18,
             color: '#1E293B',
           },
